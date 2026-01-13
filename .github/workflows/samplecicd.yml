@@ -1,0 +1,12 @@
+jobs:
+  deploy_to_production:
+    runs-on: ubuntu-latest
+    # This job will now be subject to the 'production' environment's rules
+    environment:
+      name: production
+      # Optionally, you can also specify a URL that will appear in the workflow summary
+      # url: https://your-deployed-app-url.com
+    steps:
+        - name: print vars
+            uses: echo "Environment: ${{ job.environment.name }}, var = ${{ vars.TESTVARIABLE1 }}, secret = ${{ secrets.TESTSECRET1 }}"
+      # ... your deployment steps here ...
